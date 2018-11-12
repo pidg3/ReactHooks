@@ -1,5 +1,19 @@
-.App {
+html, body, #root {
+  height: 100%;
+}
+
+h1 {
   text-align: center;
+}
+
+ul {
+  text-decoration: underline;
+  color: blue;
+}
+
+.App {
+  height: 100%;
+  width: 100%;
 }
 
 .App-logo {

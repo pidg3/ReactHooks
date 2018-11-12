@@ -1,25 +1,52 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import RenderProps from './RenderProps';
 
+const displayNames = {
+  RENDER_PROPS: 'Render Props',
+  HOC: 'Higher Order Components',
+  HOOKS: 'React Hooks'
+};
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      display: 'RENDER_PROPS'
+    };
+    this.updateDisplay = this.updateDisplay.bind(this);
+  }
+
+  updateDisplay(display) {
+    this.setState(
+      {
+        display
+      },
+      () => console.log(this.state)
+    );
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
+        <ul>
+          <a href="#">
+            <li onClick={() => this.updateDisplay('RENDER_PROPS')}>
+              {displayNames.RENDER_PROPS}
+            </li>
           </a>
-        </header>
+          <a href="#">
+            <li onClick={() => this.updateDisplay('HOC')}>
+              {displayNames.HOC}
+            </li>
+          </a>
+          <a href="#">
+            <li onClick={() => this.updateDisplay('HOOKS')}>
+              {displayNames.HOOKS}
+            </li>
+          </a>
+        </ul>
+        <h1>{displayNames[this.state.display]}</h1>
+        {this.state.display === 'RENDER_PROPS' && <RenderProps />}
       </div>
     );
   }
