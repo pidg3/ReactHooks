@@ -1,7 +1,7 @@
 import React from 'react';
 import MousePosition from './RenderProps/MousePosition';
-import Cat from './RenderProps/Cat';
-import Dog from './RenderProps/Dog';
+import Cat from './shared/Cat';
+import Dog from './shared/Dog';
 
 export default class RenderProps extends React.Component {
   render() {

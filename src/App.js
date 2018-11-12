@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import RenderProps from './RenderProps';
+import HOC from './HOC';
 
 const displayNames = {
   RENDER_PROPS: 'Render Props',
@@ -47,6 +48,7 @@ class App extends Component {
         </ul>
         <h1>{displayNames[this.state.display]}</h1>
         {this.state.display === 'RENDER_PROPS' && <RenderProps />}
+        {this.state.display === 'HOC' && <HOC />}
       </div>
     );
   }
