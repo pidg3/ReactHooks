@@ -18,12 +18,9 @@ class App extends Component {
   }
 
   updateDisplay(display) {
-    this.setState(
-      {
-        display
-      },
-      () => console.log(this.state)
-    );
+    this.setState({
+      display
+    });
   }
 
   render() {
@@ -49,6 +46,8 @@ class App extends Component {
         <h1>{displayNames[this.state.display]}</h1>
         {this.state.display === 'RENDER_PROPS' && <RenderProps />}
         {this.state.display === 'HOC' && <HOC />}
+        {this.state.display === 'HOOKS' && <p>TODO</p>}
+
       </div>
     );
   }

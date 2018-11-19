@@ -6,7 +6,7 @@ export default function withMousePositionWrapper(WrappedComponent) {
       super(props);
       this.handleMouseMove = this.handleMouseMove.bind(this);
       this.state = { x: null, y: null };
-      this.testRef = React.createRef();
+      this.boundingDiv = React.createRef();
     }
 
     componentDidMount() {
@@ -15,7 +15,7 @@ export default function withMousePositionWrapper(WrappedComponent) {
         left,
         width,
         height
-      } = this.testRef.current.getBoundingClientRect();
+      } = this.boundingDiv.current.getBoundingClientRect();
       this.setState({
         x: left + width / 2,
         y: top + height / 2
@@ -31,7 +31,7 @@ export default function withMousePositionWrapper(WrappedComponent) {
     render() {
       return (
         <div
-          ref={this.testRef}
+          ref={this.boundingDiv}
           style={{
             margin: 10,
             border: '1px solid red',
